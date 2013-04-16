@@ -1,14 +1,17 @@
 !!! 5
 %html
-  %head>
+  %head
     %title Current
-    %link( href="css/screen.css" rel="stylesheet" )
-    %link( href="http://fonts.googleapis.com/css?family=Orienta" rel="stylesheet" )
+    %meta(charset="utf-8")
+    %link(href="css/screen.css" rel="stylesheet")
+    %link(href="http://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet")
   %body
     %div
-      :markdown
-        ![Current Logo](img/logo-current-black.png)
-        # We're Current!
-        ## Since 2008, crafting web applications in São Paulo, Brazil.
-
-        oi@current.com.br
+      %img(src="https://raw.github.com/oicurrent/branding/master/png/square-blue-512.png" alt="Current Logo" width="256px" height="256px")
+      %h1 We're Current!
+      %h2 Since 2008, crafting web applications in São Paulo, Brazil.
+      %nav
+        %a(href="mailto:oi@current.com.br") E-mail
+        %a(href="http://facebook.com/oicurrent") Facebook
+        %a(href="http://twitter.com/oicurrent") Twitter
+        %a(href="http://github.com/oicurrent") GitHub
