@@ -1,22 +1,50 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Current</title>
-    <meta charset='utf-8'>
-    <link href='css/screen.css' rel='stylesheet'>
-    <link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet'>
-  </head>
-  <body>
-    <div>
-      <img alt='Current Logo' height='256px' src='https://raw.github.com/oicurrent/branding/master/png/square-blue-512.png' width='256px'>
-      <h1>We're Current!</h1>
-      <h2>Since 2008, crafting web applications in São Paulo, Brazil.</h2>
-      <nav>
-        <a href='mailto:oi@current.com.br'>E-mail</a>
-        <a href='http://facebook.com/oicurrent'>Facebook</a>
-        <a href='http://twitter.com/oicurrent'>Twitter</a>
-        <a href='http://github.com/oicurrent'>GitHub</a>
-      </nav>
-    </div>
-  </body>
-</html>
+---
+layout: default
+title: Home
+---
+
+<div>
+  <img alt='Current Logo' height='256px' src='https://raw.github.com/oicurrent/branding/master/png/square-blue-512.png' width='256px'>
+  <h1>We're Current!</h1>
+  <h2>Since 2008, crafting web applications in São Paulo, Brazil.</h2>
+  <nav>
+    <a href='mailto:oi@current.com.br'>E-mail</a>
+    <a href='http://facebook.com/oicurrent'>Facebook</a>
+    <a href='http://twitter.com/oicurrent'>Twitter</a>
+    <a href='http://github.com/oicurrent'>GitHub</a>
+  </nav>
+</div>
+
+
+<div class="posts">
+  {% for post in paginator.posts %}
+  <div class="post">
+    <h1 class="post-title">
+      <a href="{{ post.url }}">
+        {{ post.title }}
+      </a>
+    </h1>
+
+    <span class="post-date">{{ post.date | date_to_string }}</span>
+
+    {{ post.content }}
+  </div>
+  {% endfor %}
+</div>
+
+<div class="pagination">
+  {% if paginator.next_page %}
+    <a class="pagination-item older" href="/page{{paginator.next_page}}">Older</a>
+  {% else %}
+    <span class="pagination-item older">Older</span>
+  {% endif %}
+  {% if paginator.previous_page %}
+    {% if paginator.page == 2 %}
+      <a class="pagination-item newer" href="/">Newer</a>
+    {% else %}
+      <a class="pagination-item newer" href="/page{{paginator.previous_page}}">Newer</a>
+    {% endif %}
+  {% else %}
+    <span class="pagination-item newer">Newer</span>
+  {% endif %}
+</div>
