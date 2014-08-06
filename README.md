@@ -1,4 +1,3 @@
-oicurrent.github.com
-====================
+# GitHub Page
 
-GitHub Page
+Company website with links to social profiles.
